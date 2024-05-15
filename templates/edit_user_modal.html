@@ -1,0 +1,46 @@
+{% for user in users %}
+<div class="modal fade" id="editUserModal{{ user.id }}" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel{{ user.id }}" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editUserModalLabel{{ user.id }}">Edit User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Form to edit an existing user -->
+        <form id="editUserForm{{ user.id }}" action="{{ url_for('update_user', user_id=user.id) }}" method="POST">
+          <div class="form-group">
+            <label for="edit_name{{ user.id }}">Name</label>
+            <input type="text" class="form-control" id="edit_name{{ user.id }}" name="name" placeholder="Enter name" value="{{ user.name }}">
+          </div>
+          <div class="form-group">
+            <label for="edit_email{{ user.id }}">Email address</label>
+            <input type="email" class="form-control" id="edit_email{{ user.id }}" name="email" placeholder="Enter email" value="{{ user.email }}">
+          </div>
+          <div class="form-group">
+            <label for="edit_gender{{ user.id }}">Gender</label>
+            <select class="form-control" id="edit_gender{{ user.id }}" name="gender">
+              <option value="Male" {% if user.gender == 'Male' %}selected{% endif %}>Male</option>
+              <option value="Female" {% if user.gender == 'Female' %}selected{% endif %}>Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="edit_phoneNumber{{ user.id }}">Phone Number</label>
+            <input type="text" class="form-control" id="edit_phoneNumber{{ user.id }}" name="phoneNumber" placeholder="Enter phone number" value="{{ user.phone_number }}">
+          </div>
+          <div class="form-group">
+            <label for="edit_address{{ user.id }}">Address</label>
+            <input type="text" class="form-control" id="edit_address{{ user.id }}" name="address" placeholder="Enter address" value="{{ user.address }}">
+          </div>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}

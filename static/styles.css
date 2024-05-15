@@ -1,0 +1,31 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #40A2E3;
+    padding-top: 60px; 
+    color: #fff; 
+  }
+
+  .sidebar-link {
+    padding: 10px 20px;
+    display: block;
+    color: #fff;
+  }
+  .sidebar-link:hover {
+    background-color: #3489c2;
+    text-decoration: none;
+  }
+
+  .main-content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+
+  .user-table{
+    background-color: #e2e2e8;
+    padding: 30px;
+    /* margin: 20px; */
+  }
